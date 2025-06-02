@@ -15,7 +15,8 @@ class TareaController extends Controller
      */
     public function index()
     {
-        //
+        $tareas = Tarea::all();
+        return view('tareas.index', compact('tareas'));
     }
 
     /**
@@ -25,7 +26,7 @@ class TareaController extends Controller
      */
     public function create()
     {
-        //
+        return view ('tareas.create');
     }
 
     /**
@@ -36,7 +37,11 @@ class TareaController extends Controller
      */
     public function store(StoreTareaRequest $request)
     {
-        //
+        $tarea = new Tarea();
+        $tarea->nombre = $request->input('nombre');
+        $tarea->save();
+
+        return redirect()->route('tareas.index')->with('success', 'Tarea creada exitosamente.');
     }
 
     /**
@@ -58,7 +63,7 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        //
+        return view('tareas.edit', compact('tarea'));
     }
 
     /**
@@ -70,7 +75,10 @@ class TareaController extends Controller
      */
     public function update(UpdateTareaRequest $request, Tarea $tarea)
     {
-        //
+        $tarea->nombre = $request->input('nombre');
+        $tarea->save();
+
+        return redirct()->route('tareas.index')->with('succes', 'Tarea actualizada exitosamente');
     }
 
     /**
@@ -81,6 +89,7 @@ class TareaController extends Controller
      */
     public function destroy(Tarea $tarea)
     {
-        //
+        $tarea->delete();
+        return redirect()->route('tareas.index')->with('success', 'Tarea eliminada exitosamente.');
     }
 }

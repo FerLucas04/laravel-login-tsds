@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Tarea;
 
 class TareaSeeder extends Seeder
 {
@@ -14,6 +15,9 @@ class TareaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Tarea::create(['nombre'=> 'Instalacion']);
+        Tarea::create(['nombre'=> 'Desconexion']);
+        Tarea::create(['nombre'=> 'Service']);
+        Tarea::create(['nombre'=> 'Reconexion']);
     }
 }
