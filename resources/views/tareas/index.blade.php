@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tareas as $area)
+                        @foreach ($tareas as $tarea)
                             <tr>
                                 <td>{{ $tarea->id }}</td>
                                 <td>{{ $tarea->nombre }}</td>

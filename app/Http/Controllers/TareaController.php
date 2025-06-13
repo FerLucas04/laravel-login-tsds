@@ -78,7 +78,7 @@ class TareaController extends Controller
         $tarea->nombre = $request->input('nombre');
         $tarea->save();
 
-        return redirct()->route('tareas.index')->with('succes', 'Tarea actualizada exitosamente');
+        return redirect()->route('tareas.index')->with('success', 'Tarea actualizada exitosamente');
     }
 
     /**
